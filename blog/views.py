@@ -20,26 +20,11 @@ class HomePageView(TemplateView):
     
 
 
-# def homepage(request):
-#     latest_post = Post.objects.all().order_by("-date")[:3]
-#     return render(request, "blog/homepage.html", {
-#         "posts": latest_post,
-#     })
-
-
 class PostsView(ListView):
     template_name = "blog/all_posts.html"
     model = Post
     ordering = ["-date"]
     context_object_name = "posts"
-
-
-
-# def posts(request):
-#     all_posts = Post.objects.all().order_by("-date")
-#     return render(request, 'blog/all_posts.html', {
-#         "posts": all_posts,
-#     })
 
 
 class PosrArticleView(View):
@@ -82,16 +67,6 @@ class PosrArticleView(View):
         }
         return render(request, "blog/post_article.html", context)
 
-   
-    
-
-
-# def post_article(request, slug):
-#     identified_post = get_object_or_404(Post, slug=slug)
-#     return render(request, "blog/post_article.html", {
-#         "post": identified_post,
-#         "post_tags": identified_post.tag.all()
-#     })
 
 
 class ReadLaterView(View):
